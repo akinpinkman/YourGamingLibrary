@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Homepage() {
-  return <h1>Homepage of the Your Gaming Library App</h1>;
+  return <h1>Homepage</h1>;
 }
