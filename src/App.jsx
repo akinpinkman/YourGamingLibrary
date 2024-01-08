@@ -12,9 +12,9 @@ export default function App() {
         <Route element={<AppLayout />}>
           <Route index element={<Navigate replace to="homepage" />} />
 
-          <Route path="gamelibrary" element={<GameLibrary />} />
-
           <Route path="homepage" element={<Homepage />} />
+
+          <Route path="gamelibrary" element={<GameLibrary />} />
 
           <Route path="playlater" element={<PlayLater />} />
         </Route>

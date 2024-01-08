@@ -1,15 +1,14 @@
-import Header from "./Header";
 import Sidebar from "./Sidebar";
-import Logo from "./Logo";
+import styled from "styled-components";
+
+const StyledAppLayout = styled.aside`
+font-size: 1.2rem;
+`
 
 export default function AppLayout() {
   return (
-    <>
-      <Header />
-      
-      <Sidebar />
-      
-      {/* <Outlet /> */}
-    </>
+    <StyledAppLayout>
+        <Sidebar />
+    </StyledAppLayout>
   );
 }

@@ -1,6 +1,10 @@
+import styled from "styled-components"
 
+const StyledH2 = styled.aside`
+  font-size: 1.875rem;
+`
 export default function Logo() {
   return (
-    <h2>Logo</h2>
+    <StyledH2>LOGO</StyledH2>
   )
 }
