@@ -10,7 +10,5 @@ export function usePopularGames() {
       queryKey: ['recentPopularGames'],
       queryFn: getRecentPopularGames,
     })
-
   return {isLoading, error, popularGames}
-  
 }

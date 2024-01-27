@@ -11,8 +11,6 @@ const StyledOutlet = styled.aside`
   font-size: 3rem;
   display: flex;
   justify-content: center;
-  
-  
 `
 
 export default function AppLayout() {
