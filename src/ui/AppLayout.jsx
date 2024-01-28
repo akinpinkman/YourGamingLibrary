@@ -1,10 +1,9 @@
-import { Outlet } from "react-router-dom";
-import Sidebar from "./Sidebar";
-import styled from "styled-components";
-import Homepage from "../pages/Homepage";
+import { Outlet } from 'react-router-dom'
+import Sidebar from './Sidebar'
+import styled from 'styled-components'
 
 const StyledAppLayout = styled.aside`
-font-size: 1.2rem;
+  font-size: 1.2rem;
 `
 
 const StyledOutlet = styled.aside`
@@ -16,10 +15,10 @@ const StyledOutlet = styled.aside`
 export default function AppLayout() {
   return (
     <StyledAppLayout>
-        <Sidebar />
-        <StyledOutlet>
-          <Outlet />
-        </StyledOutlet>
+      <Sidebar />
+      <StyledOutlet>
+        <Outlet />
+      </StyledOutlet>
     </StyledAppLayout>
-  );
+  )
 }

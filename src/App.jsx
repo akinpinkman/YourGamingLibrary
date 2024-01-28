@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Homepage from "./pages/Homepage";
-import GameLibrary from "./pages/GameLibrary";
-import PlayLater from "./pages/PlayLater";
+import Homepage from "./pages/Homepage/Homepage";
+import GameLibrary from "./pages/GameLibrary/GameLibrary";
+import PlayLater from "./pages/PlayLater/PlayLater";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
