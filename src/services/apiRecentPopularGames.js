@@ -1,5 +1,5 @@
-const clientId = process.env.REACT_APP_CLIENT_ID
-const authorizationToken = process.env.REACT_APP_AUTHORIZATION_TOKEN
+const clientId = import.meta.env.VITE_REACT_APP_CLIENT_ID
+const authorizationToken = import.meta.env.VITE_REACT_APP_AUTHORIZATION_TOKEN
 
 export default async function getRecentPopularGames() {
   const response = await fetch('/api/v4/games', {
