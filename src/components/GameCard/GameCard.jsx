@@ -60,7 +60,7 @@ export default function GameCard() {
                   </div>
                   <div className="bottom-section">
                     <div className="summaryContainer">
-                      <p className="summary">{slicedSummary}</p>
+                      <p className="summary">{slicedSummary} A</p>
                     </div>
                   </div>
                 </div>
