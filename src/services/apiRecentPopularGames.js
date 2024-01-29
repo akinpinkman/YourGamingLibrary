@@ -12,7 +12,6 @@ export default async function getRecentPopularGames() {
     },
     body: 'fields name,first_release_date,rating,release_dates.human,cover.*,summary; where first_release_date >= 1672524061 & rating >= 60 & rating_count >= 20; limit 100;'
   })
-
   const data = await response.json()
   return data
 }
