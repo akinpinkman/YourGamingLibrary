@@ -1,8 +1,8 @@
-// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import eslint from 'vite-plugin-eslint'
 
+// https://vitejs.dev/config/
 export default defineConfig({
   server: {
     proxy: {
@@ -13,11 +13,5 @@ export default defineConfig({
       }
     }
   },
-  plugins: [react(), eslint()],
-  define: {
-    'process.env.VITE_REACT_APP_CLIENT_ID': JSON.stringify(process.env.VITE_REACT_APP_CLIENT_ID),
-    'process.env.VITE_REACT_APP_AUTHORIZATION_TOKEN': JSON.stringify(
-      process.env.VITE_REACT_APP_AUTHORIZATION_TOKEN
-    )
-  }
+  plugins: [react(), eslint()]
 })
