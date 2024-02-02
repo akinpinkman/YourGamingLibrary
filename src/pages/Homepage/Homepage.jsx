@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import GameCardGallery from '../../components/GameCard/GameCardGallery'
-import SearchBar from '../../components/SearchBar/SearchBar'
+import GameCardGallery from '../../components/GameCard/GameCardItemContainer'
 
 const StyledGameCoverGallery = styled.aside`
   display: flex;
@@ -12,9 +11,7 @@ export default function Homepage() {
   return (
     <>
       <StyledGameCoverGallery>
-        <SearchBar />
         <GameCardGallery />
-        {/* <GameCoverGallery /> */}
       </StyledGameCoverGallery>
     </>
   )

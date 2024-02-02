@@ -15,7 +15,7 @@ const StyledOutlet = styled.aside`
 export default function AppLayout() {
   return (
     <StyledAppLayout>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <StyledOutlet>
         <Outlet />
       </StyledOutlet>
