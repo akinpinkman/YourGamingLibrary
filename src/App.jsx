@@ -1,12 +1,13 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Homepage from './pages/Homepage/Homepage'
-import GameLibrary from './pages/GameLibrary/GameLibrary'
-import PlayLater from './pages/PlayLater/PlayLater'
+import GameLibrary from './pages/Game Library/GameLibrary'
+import PlayLater from './pages/Play Later/PlayLater'
 import PageNotFound from './pages/PageNotFound'
 import AppLayout from './ui/AppLayout'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ChakraProvider } from '@chakra-ui/react'
+import GamePages from './pages/Game Pages/GamePages'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,24 +17,32 @@ const queryClient = new QueryClient({
   }
 })
 
+const ProviderWrapper = ({ children }) => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <BrowserRouter>
+        <ChakraProvider>{children}</ChakraProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
+  )
+}
+
 export default function App() {
   return (
-    // NOTE: GlobalStyles ekle.
-    <ChakraProvider>
-      <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen={false} />
-        <BrowserRouter>
-          <Routes>
-            <Route element={<AppLayout />}>
-              <Route index element={<Navigate replace to="homepage" />} />
-              <Route path="homepage" element={<Homepage />} />
-              <Route path="gamelibrary" element={<GameLibrary />} />
-              <Route path="playlater" element={<PlayLater />} />
-            </Route>
-            <Route path="*" element={<PageNotFound />}></Route>
-          </Routes>
-        </BrowserRouter>
-      </QueryClientProvider>
-    </ChakraProvider>
+    <ProviderWrapper>
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route index element={<Navigate replace to="games" />} />
+
+          <Route path="games" element={<Homepage />} />
+          <Route path="games/:slug" element={<GamePages />} />
+
+          <Route path="gamelibrary" element={<GameLibrary />} />
+          <Route path="playlater" element={<PlayLater />} />
+        </Route>
+        <Route path="*" element={<PageNotFound />}></Route>
+      </Routes>
+    </ProviderWrapper>
   )
 }
