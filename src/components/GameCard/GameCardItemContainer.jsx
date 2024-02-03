@@ -2,7 +2,7 @@ import GameCardItem from './GameCardItem'
 import { usePopularGames } from '../../hooks/usePopularGames'
 import { useSearchGames } from '../../hooks/useSearchGames'
 import { useState } from 'react'
-import { Center, Spinner } from '@chakra-ui/react'
+import { Spinner } from '@chakra-ui/react'
 
 export default function GameCardItemContainer() {
   const [query, setQuery] = useState('')

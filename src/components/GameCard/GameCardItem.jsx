@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import unixToHumanDate from '../../utils/unixToHumanDate'
 import cutSummary from '../../utils/cutSummary'
+import { Link } from 'react-router-dom'
 
 const getColorBasedOnRating = (rating) => {
   if (isNaN(rating)) {
-    return 'gray' // Return gray color for NaN
+    return 'gray'
   } else if (rating <= 30) {
     return 'red'
   } else if (rating <= 50) {
@@ -33,7 +34,7 @@ const GameCardItem = ({ game }) => {
   const backgroundColor = getColorBasedOnRating(rating)
 
   return (
-    <div className="col-4 col-md-3 col-lg-2 mt-5">
+    <Link className="col-4 col-md-3 col-lg-2 mt-5" to={`/games/${game.slug}`}>
       <div className="card h-100">
         <img
           className="card-img-top ImgHover"
@@ -63,7 +64,7 @@ const GameCardItem = ({ game }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
