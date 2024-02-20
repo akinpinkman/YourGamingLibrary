@@ -6,19 +6,11 @@ const StyledAppLayout = styled.aside`
   font-size: 1.2rem;
 `
 
-const StyledOutlet = styled.aside`
-  font-size: 3rem;
-  display: flex;
-  justify-content: center;
-`
-
 export default function AppLayout() {
   return (
     <StyledAppLayout>
       {/* <Sidebar /> */}
-      <StyledOutlet>
-        <Outlet />
-      </StyledOutlet>
+      <Outlet />
     </StyledAppLayout>
   )
 }

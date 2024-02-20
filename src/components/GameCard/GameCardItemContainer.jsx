@@ -20,22 +20,24 @@ export default function GameCardItemContainer() {
   }
 
   return (
-    <div className="container mt-4">
-      <div className="row">
-        <form className="form-inline">
-          <input
-            className="form-control mr-sm-2"
-            onChange={(e) => setQuery(e.target.value)}
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-        </form>
-        {query === ''
-          ? popularGames.map((game, index) => <GameCardItem key={index} game={game} />)
-          : searchedGames &&
-            searchedGames.map((game, index) => <GameCardItem key={index} game={game} />)}
+    <>
+      <div className="container mt-4">
+        <div className="row">
+          <form className="form-inline">
+            <input
+              className="form-control mr-sm-2"
+              onChange={(e) => setQuery(e.target.value)}
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </form>
+          {query === ''
+            ? popularGames.map((game, index) => <GameCardItem key={index} game={game} />)
+            : searchedGames &&
+              searchedGames.map((game, index) => <GameCardItem key={index} game={game} />)}
+        </div>
       </div>
-    </div>
+    </>
   )
 }

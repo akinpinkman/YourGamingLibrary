@@ -17,10 +17,13 @@ const getColorBasedOnRating = (rating) => {
   }
 }
 
+//  export default function getImageUrl(){
+
+// }
+
 const GameCardItem = ({ game }) => {
   const processedGame = unixToHumanDate(game)
   const slicedSummary = cutSummary(game.summary, 40)
-
   const getImageUrl = () => {
     if (game.cover && game.cover.image_id) {
       const imageId = game.cover.image_id
@@ -30,11 +33,12 @@ const GameCardItem = ({ game }) => {
     }
   }
 
+  console.log(game)
+
   const rating = Math.floor(game.rating)
   const backgroundColor = getColorBasedOnRating(rating)
-
   return (
-    <Link className="col-4 col-md-3 col-lg-2 mt-5" to={`/games/${game.slug}`}>
+    <Link className="col-4 col-md-3 col-lg-2 mt-5" to={`/games/${game.slug}`} state={{ game }}>
       <div className="card h-100">
         <img
           className="card-img-top ImgHover"
