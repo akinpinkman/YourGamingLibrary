@@ -1,6 +1,6 @@
 # YourGamingLibrary
 
-![YourGamingLibrary Preview](https://raw.githubusercontent.com/akinpinkman/YourGamingLibrary/main/Screenshot%202024-02-21%20011712.png)
+![YourGamingLibrary Preview](https://github.com/akinpinkman/YourGamingLibrary/blob/main/src/assets/YourGamingLibraryScreenShot.png?raw=true)
 
 YourGamingLibrary is a web application that allows users to access and learn about various video games. With YourGamingLibrary, users can find comprehensive information about games, including summaries, storylines, screenshots, release dates, developers, artworks, DLCs, expansions, genres, platforms, ratings, and more.
 
