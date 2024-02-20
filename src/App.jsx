@@ -1,7 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Homepage from './pages/Homepage/Homepage'
-import GameLibrary from './pages/Game Library/GameLibrary'
-import PlayLater from './pages/Play Later/PlayLater'
 import PageNotFound from './pages/PageNotFound'
 import AppLayout from './ui/AppLayout'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -34,12 +32,8 @@ export default function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route index element={<Navigate replace to="games" />} />
-
           <Route path="games" element={<Homepage />} />
           <Route path="games/:slug" element={<GamePages />} />
-
-          <Route path="gamelibrary" element={<GameLibrary />} />
-          <Route path="playlater" element={<PlayLater />} />
         </Route>
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
