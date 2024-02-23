@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import styled from 'styled-components'
 
-const StyledAppLayout = styled.aside`
+const StyledAppLayout = styled.main`
   font-size: 1.2rem;
 `
 

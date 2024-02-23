@@ -33,9 +33,9 @@ export default function GameCardItemContainer() {
             />
           </form>
           {query === ''
-            ? popularGames.map((game, index) => <GameCardItem key={index} game={game} />)
+            ? popularGames.map((game) => <GameCardItem key={game.id} game={game} />)
             : searchedGames &&
-              searchedGames.map((game, index) => <GameCardItem key={index} game={game} />)}
+              searchedGames.map((game, index) => <GameCardItem key={game.id} game={game} />)}
         </div>
       </div>
     </>

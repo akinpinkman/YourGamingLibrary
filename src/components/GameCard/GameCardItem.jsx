@@ -2,6 +2,7 @@
 import unixToHumanDate from '../../utils/unixToHumanDate'
 import cutSummary from '../../utils/cutSummary'
 import { Link } from 'react-router-dom'
+import { get1080pImage } from '../../utils/get1080pImages'
 
 const getColorBasedOnRating = (rating) => {
   if (isNaN(rating)) {
@@ -17,23 +18,10 @@ const getColorBasedOnRating = (rating) => {
   }
 }
 
-//  export default function getImageUrl(){
-
-// }
-
 const GameCardItem = ({ game }) => {
   const processedGame = unixToHumanDate(game)
   const slicedSummary = cutSummary(game.summary, 40)
-  const getImageUrl = () => {
-    if (game.cover && game.cover.image_id) {
-      const imageId = game.cover.image_id
-      return `//images.igdb.com/igdb/image/upload/t_1080p/${imageId}.jpg`
-    } else {
-      return 'No Image Available'
-    }
-  }
-
-  console.log(game)
+  const coverImage = get1080pImage(game.cover)
 
   const rating = Math.floor(game.rating)
   const backgroundColor = getColorBasedOnRating(rating)
@@ -42,8 +30,8 @@ const GameCardItem = ({ game }) => {
       <div className="card h-100">
         <img
           className="card-img-top ImgHover"
-          srcSet={getImageUrl()}
-          src={getImageUrl()}
+          srcSet={coverImage}
+          src={coverImage}
           alt={game.cover ? `${game.name} Cover` : `${game.name} Cover Not Available`}
         />
 

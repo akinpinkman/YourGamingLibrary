@@ -10,7 +10,7 @@ export default async function getRecentPopularGames() {
       Authorization: `Bearer ${authorizationToken}`,
       'Content-Type': 'application/json'
     },
-    body: 'fields name,first_release_date,involved_companies.company.name,genres.name,storyline,rating,release_dates.human,cover.*,slug,summary; where first_release_date >= 1672524061 & rating >= 60 & rating_count >= 20; limit 100;'
+    body: 'fields name,first_release_date,involved_companies.company.name,screenshots.url,genres.name,storyline,rating,release_dates.human,cover.*,slug,summary; where first_release_date >= 1672524061 & rating >= 60 & rating_count >= 20; limit 100;'
   })
   const data = await response.json()
   return data
