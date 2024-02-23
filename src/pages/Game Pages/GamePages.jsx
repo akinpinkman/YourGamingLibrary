@@ -6,11 +6,11 @@ import { get1080pImage } from '../../utils/get1080pImages'
 
 const StyledMainContainer = styled.main`
   display: flex;
+
   flex-wrap: wrap;
   gap: 5rem;
   margin-top: 2rem;
   justify-content: center;
-  /* flex-direction: column; */
 `
 
 const StyledCoverContainer = styled.aside`
@@ -20,7 +20,6 @@ const StyledHeaderContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
   border: blue 2px solid;
   padding: 1rem;
 `
@@ -42,10 +41,11 @@ const StyledH4 = styled.h4`
 const StyledSummary = styled.h4`
   padding-top: 2rem;
   font-size: 1rem;
+  max-width: 80rem;
 `
 const StyledGenres = styled.aside`
   padding: 1rem 1rem;
-  margin: 1%;
+
   border: solid 1px #a7a7a7;
   font-size: 1rem;
 `
