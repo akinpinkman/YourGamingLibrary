@@ -17,4 +17,4 @@ module.exports = {
     'no-unused-vars': ['warn', { vars: 'all', args: 'after-used' }],
     'react/prop-types': 'warn'
   }
-};
+}

@@ -2,29 +2,25 @@ import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import unixToHumanDate from '../../utils/unixToHumanDate'
 import { get1080pImage } from '../../utils/get1080pImages'
-// import ImageSlider from '../../components/GameCard/ImageSlider'
+import ImageSlider from '../../components/GameCard/ImageSlider'
 
 const StyledMainContainer = styled.main`
-  display: flex;
-
+  /* display: flex;
   flex-wrap: wrap;
   gap: 5rem;
   margin-top: 2rem;
-  justify-content: center;
+  justify-content: center; */
 `
 
 const StyledCoverContainer = styled.aside`
-  border: red 2px solid;
+  /* border: red 2px solid; */
 `
 const StyledHeaderContainer = styled.section`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   gap: 1rem;
   border: blue 2px solid;
-  padding: 1rem;
-`
-const StyledImageSlider = styled.section`
-  margin-top: 5rem;
+  padding: 1rem; */
 `
 
 const StyledH2 = styled.h2`
@@ -39,17 +35,15 @@ const StyledH4 = styled.h4`
   color: #747474;
 `
 const StyledSummary = styled.h4`
-  padding-top: 2rem;
+  /* padding-top: 2rem;
   font-size: 1rem;
-  max-width: 80rem;
+  max-width: 80rem; */
 `
 const StyledGenres = styled.aside`
-  padding: 1rem 1rem;
-
+  /* padding: 1rem 1rem;
   border: solid 1px #a7a7a7;
-  font-size: 1rem;
+  font-size: 1rem; */
 `
-
 export default function GamePages() {
   const { state } = useLocation()
   const { game } = state
@@ -80,11 +74,7 @@ export default function GamePages() {
             <p>{game.summary}</p>
           </StyledSummary>
         </StyledHeaderContainer>
-        <StyledImageSlider>
-          {/* <ImageSlider>
-            <img srcSet={screenshotImages[7]} />
-          </ImageSlider> */}
-        </StyledImageSlider>
+        <ImageSlider screenshotImages={screenshotImages} />
       </StyledMainContainer>
     </>
   )
