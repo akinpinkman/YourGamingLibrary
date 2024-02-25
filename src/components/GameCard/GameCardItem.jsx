@@ -3,6 +3,32 @@ import unixToHumanDate from '../../utils/unixToHumanDate'
 import cutSummary from '../../utils/cutSummary'
 import { Link } from 'react-router-dom'
 import { get1080pImage } from '../../utils/get1080pImages'
+import RatingIndicator from '../../ui/ratingIndicator'
+import styled, { keyframes } from 'styled-components'
+
+const rotateInClockwise = keyframes`
+  from {
+    transform: translate(50%, -50%) rotateZ(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: translate(50%, -50%) rotateZ(0deg);
+    opacity: 1;
+  }
+`
+
+const StyledCircleP = styled.section`
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  color: white;
+
+  .card:hover & {
+    opacity: 1;
+    animation: ${rotateInClockwise} 0.5s ease-out;
+  }
+`
 
 const getColorBasedOnRating = (rating) => {
   if (isNaN(rating)) {
@@ -39,14 +65,9 @@ const GameCardItem = ({ game }) => {
           <div className="top-section">
             <p className="card-text fs-5">{game.name}</p>
             <p className="date">({processedGame.formattedDate})</p>
-
-            <span
-              className="CircleP"
-              style={{
-                backgroundColor: backgroundColor
-              }}>
-              {isNaN(rating) ? 'N/A' : rating}
-            </span>
+            <StyledCircleP>
+              <RatingIndicator rating={game.rating} width={48} height={48} fontSize={25} />
+            </StyledCircleP>
           </div>
 
           <div className="bottom-section">

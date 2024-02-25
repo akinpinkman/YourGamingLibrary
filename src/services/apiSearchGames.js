@@ -10,7 +10,7 @@ export default async function searchGames(query) {
       Authorization: `Bearer ${authorizationToken}`,
       'Content-Type': 'application/json'
     },
-    body: `search "${query}"; fields name,first_release_date,screenshots.url,storyline,genres.name,involved_companies.company.name,rating,release_dates.human,cover.*,slug,summary; where category = 0; limit 50;`
+    body: `search "${query}"; fields name,first_release_date,screenshots.url,platforms.name,storyline,genres.name,involved_companies.company.name,rating,release_dates.human,cover.*,slug,summary; where category = 0; limit 50;`
   })
 
   const data = await response.json()
