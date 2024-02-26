@@ -1,6 +1,8 @@
 import { Outlet } from 'react-router-dom'
-import Sidebar from './Sidebar'
+import Header from '../ui/Header'
+
 import styled from 'styled-components'
+import Footer from './Footer'
 
 const StyledAppLayout = styled.main`
   font-size: 1.2rem;
@@ -9,8 +11,9 @@ const StyledAppLayout = styled.main`
 export default function AppLayout() {
   return (
     <StyledAppLayout>
-      {/* <Sidebar /> */}
+      <Header />
       <Outlet />
+      <Footer />
     </StyledAppLayout>
   )
 }

@@ -3,6 +3,7 @@ import { usePopularGames } from '../../hooks/usePopularGames'
 import { useSearchGames } from '../../hooks/useSearchGames'
 import { useState } from 'react'
 import { Spinner } from '@chakra-ui/react'
+import styled from 'styled-components'
 
 export default function GameCardItemContainer() {
   const [query, setQuery] = useState('')
@@ -11,7 +12,15 @@ export default function GameCardItemContainer() {
 
   if (isLoading) {
     return (
-      <Spinner thickness="6px" speed="0.80s" emptyColor="gray.200" color="blue.500" size="xl" />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh'
+        }}>
+        <Spinner thickness="6px" speed="0.80s" emptyColor="gray.200" color="blue.500" size="xl" />
+      </div>
     )
   }
 

@@ -5,9 +5,9 @@ export default function ratingIndicator({ rating, width, height, fontSize, color
     } else if (rating <= 30) {
       return 'red'
     } else if (rating <= 50) {
-      return 'orange'
+      return '#e08a00'
     } else if (rating <= 70) {
-      return 'yellow'
+      return '#f1c40f'
     } else {
       return 'green'
     }
@@ -25,7 +25,8 @@ export default function ratingIndicator({ rating, width, height, fontSize, color
         width: width,
         height: height,
         fontSize: fontSize,
-        color: color
+        color: color,
+        fontFamily: 'Anton'
       }}>
       {Math.floor(rating)}
     </span>

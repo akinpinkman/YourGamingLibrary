@@ -63,7 +63,7 @@ const GameCardItem = ({ game }) => {
 
         <div className="card-img-overlay">
           <div className="top-section">
-            <p className="card-text fs-5">{game.name}</p>
+            <h1 className="card-text fs-5">{game.name}</h1>
             <p className="date">({processedGame.formattedDate})</p>
             <StyledCircleP>
               <RatingIndicator rating={game.rating} width={48} height={48} fontSize={25} />

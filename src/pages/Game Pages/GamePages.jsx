@@ -4,7 +4,6 @@ import unixToHumanDate from '../../utils/unixToHumanDate'
 import { get1080pImage } from '../../utils/get1080pImages'
 import ImageSlider from '../../components/GameCard/ImageSlider'
 import RatingIndicator from '../../ui/ratingIndicator'
-import { px } from 'framer-motion'
 
 const StyledMainContainer = styled.main`
   display: flex;
@@ -27,30 +26,37 @@ const StyledHeaderContainer = styled.section`
   position: relative;
 `
 
-const StyledH2 = styled.h2`
+const StyledH2 = styled.h1`
   color: #000000;
+  font-family: 'Oswald', sans-serif;
+  font-size: 45px;
 `
 
-const StyledH3 = styled.h3`
+const StyledH3 = styled.h2`
   color: #494949;
+  font-family: 'Oswald', sans-serif;
 `
 
-const StyledH4 = styled.h4`
+const StyledH4 = styled.h3`
   color: #747474;
+  font-family: 'Oswald', sans-serif;
 `
 
 const StyledSummary = styled.section`
   padding-top: 2rem;
   max-width: 80rem;
+  font-family: 'Oswald', sans-serif;
 `
 
 const StyledStoryline = styled.section`
   padding-top: 2rem;
+  font-family: 'Oswald', sans-serif;
 `
 
 const StyledGenresThemesContainer = styled.aside`
   border: solid 1px #a7a7a7;
   font-size: 1rem;
+  font-family: 'Oswald', sans-serif;
 `
 
 const StyledGenres = styled.aside`
@@ -65,6 +71,7 @@ const StyledThemes = styled.aside`
 
 const StyledDevelopers = styled.section`
   margin-top: auto;
+  font-family: 'Oswald', sans-serif;
 `
 
 const StyledGameRating = styled.section`
@@ -81,7 +88,6 @@ export default function GamePages() {
     : []
   const coverImage = get1080pImage(game.cover)
 
-  console.log(state)
   return (
     <>
       <StyledMainContainer>
@@ -89,13 +95,13 @@ export default function GamePages() {
           <img src={coverImage} alt={coverImage} style={{ maxWidth: '400px' }} />
           <StyledGenresThemesContainer>
             <StyledGenres>
-              <h5>Genres</h5>
+              <h4>Genres</h4>
               {game.genres.map((genre) => (
                 <li key={genre.id}> {genre.name}</li>
               ))}
             </StyledGenres>
             <StyledThemes>
-              <h5>Platforms</h5>
+              <h4>Platforms</h4>
               {game.platforms.map((platform) => (
                 <li key={platform.id}> {platform.name}</li>
               ))}
@@ -117,11 +123,11 @@ export default function GamePages() {
           <StyledH3>{processedGame.formattedDate}</StyledH3>
           <StyledH4>{game.involved_companies[0].company.name}</StyledH4>
           <StyledSummary>
-            <b>Summary:</b>
+            <h4>Summary:</h4>
             <p>{game.summary}</p>
             {game.storyline && (
               <StyledStoryline>
-                <b>Storyline:</b>
+                <h4>Storyline:</h4>
                 <p>{game.storyline}</p>
               </StyledStoryline>
             )}
@@ -133,7 +139,7 @@ export default function GamePages() {
             ))}
           </StyledDevelopers>
         </StyledHeaderContainer>
-        <ImageSlider screenshotImages={screenshotImages} />
+        {/* <ImageSlider screenshotImages={screenshotImages} /> */}
       </StyledMainContainer>
     </>
   )

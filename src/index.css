@@ -207,7 +207,7 @@ a:active {
 
 .date {
   font-size: 13px;
-  font-weight: bolder;
+  font-weight: light;
   margin: 5px;
 }
 
@@ -236,4 +236,16 @@ a:active {
   width: 5rem;
   font-weight: bolder;
   color: rgb(96, 183, 255);
+}
+
+p {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 250;
+  font-style: normal;
+}
+
+li {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 250;
+  font-style: normal;
 }
