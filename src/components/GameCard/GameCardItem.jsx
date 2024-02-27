@@ -3,7 +3,7 @@ import unixToHumanDate from '../../utils/unixToHumanDate'
 import cutSummary from '../../utils/cutSummary'
 import { Link } from 'react-router-dom'
 import { get1080pImage } from '../../utils/get1080pImages'
-import RatingIndicator from '../../ui/ratingIndicator'
+import RatingIndicator from '../../ui/RatingIndicator'
 import styled, { keyframes } from 'styled-components'
 
 const rotateInClockwise = keyframes`
