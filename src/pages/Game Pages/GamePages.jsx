@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import unixToHumanDate from '../../utils/unixToHumanDate'
 import { get1080pImage } from '../../utils/get1080pImages'
 import ImageSlider from '../../components/GameCard/ImageSlider'
-import RatingIndicator from '../../ui/ratingIndicator'
+import RatingIndicator from '../../ui/RatingIndicator'
 
 const StyledMainContainer = styled.main`
   @media (max-width: 480px) {
