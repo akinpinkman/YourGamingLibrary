@@ -1,4 +1,4 @@
-export default function ratingIndicator({ rating, width, height, fontSize, color }) {
+export default function RatingIndicator({ rating, width, height, fontSize, color }) {
   const getColorBasedOnRating = (rating) => {
     if (isNaN(rating)) {
       return 'gray'
