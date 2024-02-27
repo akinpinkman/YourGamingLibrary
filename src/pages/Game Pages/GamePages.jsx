@@ -6,6 +6,11 @@ import ImageSlider from '../../components/GameCard/ImageSlider'
 import RatingIndicator from '../../ui/ratingIndicator'
 
 const StyledMainContainer = styled.main`
+  @media (max-width: 480px) {
+    gap: 0;
+  }
+  @media (max-width: 1024px) {
+  }
   display: flex;
   flex-wrap: wrap;
   gap: 5rem;
@@ -139,7 +144,7 @@ export default function GamePages() {
             ))}
           </StyledDevelopers>
         </StyledHeaderContainer>
-        {/* <ImageSlider screenshotImages={screenshotImages} /> */}
+        <ImageSlider screenshotImages={screenshotImages} />
       </StyledMainContainer>
     </>
   )

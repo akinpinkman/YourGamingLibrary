@@ -1,11 +1,59 @@
+import { useState } from 'react'
+import styled from 'styled-components'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import 'swiper/css/effect-coverflow'
 import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules'
+import SwiperCore from 'swiper'
+
+// Import required icons
+import { IoArrowBackOutline, IoArrowForwardOutline } from 'react-icons/io5'
+
+// Initialize Swiper modules
+SwiperCore.use([EffectCoverflow, Navigation, Pagination])
+
+const FullScreenModal = styled.div`
+  display: ${({ open }) => (open ? 'flex' : 'none')};
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+`
+
+const FullScreenImage = styled.img`
+  max-width: 90%;
+  max-height: 90%;
+`
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+`
 
 export default function ImageSlider({ screenshotImages }) {
+  const [fullScreenImage, setFullScreenImage] = useState(null)
+
+  const openFullScreen = (image) => {
+    setFullScreenImage(image)
+  }
+
+  const closeFullScreen = () => {
+    setFullScreenImage(null)
+  }
+
   return (
     <div className="SlideContainer">
       <Swiper
@@ -25,37 +73,18 @@ export default function ImageSlider({ screenshotImages }) {
           prevEl: '.swiper-button-prev',
           clickable: true
         }}
-        modules={[EffectCoverflow, Pagination, Navigation]}
         className="swiper_container">
-        {screenshotImages.map((screenshotImage) => (
-          <SwiperSlide key={screenshotImage}>
-            <img src={screenshotImage} />
+        {screenshotImages.map((screenshotImage, index) => (
+          <SwiperSlide key={index}>
+            <img src={screenshotImage} onClick={() => openFullScreen(screenshotImage)} />
           </SwiperSlide>
         ))}
-
-        <div className="slider-controler">
-          <div className="swiper-button-prev slider-arrow">
-            <ion-icon name="arrow-back-outline"></ion-icon>
-          </div>
-          <div className="swiper-button-next slider-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-          </div>
-          <div className="swiper-pagination"></div>
-        </div>
       </Swiper>
+
+      <FullScreenModal open={fullScreenImage !== null}>
+        <CloseButton onClick={closeFullScreen}>×</CloseButton>
+        <FullScreenImage src={fullScreenImage} />
+      </FullScreenModal>
     </div>
   )
 }
-/*<div className="swiper">
-<div className="swiper-wrapper">
-  {screenshotImages.map((screenshotImage) => (
-      <img src={screenshotImage} />
-
-  ))}
-</div>
-<div className="swiper-pagination"></div>
-
-<div className="swiper-button-prev"></div>
-<div className="swiper-button-next"></div>
-</div>
-*/

@@ -132,16 +132,6 @@ a:active {
   text-decoration: none;
 }
 
-.NavBarHover {
-  transition: transform 0.3s;
-}
-
-.NavBarHover:hover {
-  -ms-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
 .card:hover .ImgHover {
   transform: scale(1.2);
   filter: grayscale(1) blur(2px);
@@ -219,6 +209,26 @@ a:active {
 }
 
 .SlideContainer {
+  max-width: 100rem;
+
+  @media (max-width: 480px) {
+    .swiper_container {
+      max-width: 28rem;
+      padding: 4rem 1rem;
+      margin: 0 auto;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 21rem;
+      font-weight: bolder;
+      color: #e8e8e8;
+    }
+  }
+
+  .swiper-slide img {
+    border-radius: 2rem;
+    object-fit: cover;
+  }
   padding: 2rem 1rem;
   margin: 0 auto;
 }
@@ -235,7 +245,7 @@ a:active {
 .swiper-button-prev {
   width: 5rem;
   font-weight: bolder;
-  color: rgb(96, 183, 255);
+  color: #e8e8e8;
 }
 
 p {

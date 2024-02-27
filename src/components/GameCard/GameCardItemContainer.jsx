@@ -3,7 +3,6 @@ import { usePopularGames } from '../../hooks/usePopularGames'
 import { useSearchGames } from '../../hooks/useSearchGames'
 import { useState } from 'react'
 import { Spinner } from '@chakra-ui/react'
-import styled from 'styled-components'
 
 export default function GameCardItemContainer() {
   const [query, setQuery] = useState('')
@@ -44,7 +43,7 @@ export default function GameCardItemContainer() {
           {query === ''
             ? popularGames.map((game) => <GameCardItem key={game.id} game={game} />)
             : searchedGames &&
-              searchedGames.map((game, index) => <GameCardItem key={game.id} game={game} />)}
+              searchedGames.map((game) => <GameCardItem key={game.id} game={game} />)}
         </div>
       </div>
     </>
