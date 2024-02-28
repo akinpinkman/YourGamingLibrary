@@ -1,7 +1,7 @@
-const clientId = import.meta.env.VITE_REACT_APP_CLIENT_ID
-const authorizationToken = import.meta.env.VITE_REACT_APP_AUTHORIZATION_TOKEN
-
 export default async function searchGames(query) {
+  const clientId = import.meta.env.VITE_REACT_APP_CLIENT_ID
+  const authorizationToken = import.meta.env.VITE_REACT_APP_AUTHORIZATION_TOKEN
+
   const response = await fetch('api/v4/games', {
     method: 'POST',
     headers: {
