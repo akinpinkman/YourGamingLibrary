@@ -8,9 +8,6 @@ import 'swiper/css/effect-coverflow'
 import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules'
 import SwiperCore from 'swiper'
 
-// Import required icons
-import { IoArrowBackOutline, IoArrowForwardOutline } from 'react-icons/io5'
-
 // Initialize Swiper modules
 SwiperCore.use([EffectCoverflow, Navigation, Pagination])
 
