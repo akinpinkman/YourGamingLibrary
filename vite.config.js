@@ -1,17 +1,14 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import eslint from 'vite-plugin-eslint'
+import { createProxy } from 'vite-plugin-proxy'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  server: {
-    proxy: {
+  plugins: [
+    createProxy({
       '/api': {
-        target: 'https://api.igdb.com',
+        target: 'https://api.igdb.com/',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        rewrite: (path) => path.replace(/^\/api/, '/api/v4')
       }
-    }
-  },
-  plugins: [react(), eslint()]
+    })
+  ]
 })
