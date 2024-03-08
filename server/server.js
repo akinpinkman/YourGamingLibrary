@@ -23,7 +23,7 @@ app.post('/api/v4/populargames', async (req, res) => {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Client-ID': clientId,
+        'Client-ID': clientId ?? '',
         Authorization: `Bearer ${authorizationToken}`
       },
       body: 'fields name,first_release_date,involved_companies.company.name,platforms.name,screenshots.url,genres.name,storyline,rating,release_dates.human,cover.*,slug,summary; where first_release_date >= 1672524061 & rating >= 60 & rating_count >= 20; limit 100;'
@@ -45,7 +45,7 @@ app.post('/api/v4/search', async (req, res) => {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Client-ID': clientId,
+        'Client-ID': clientId ?? '',
         Authorization: `Bearer ${authorizationToken}`
       },
       body: `search "${search}";
@@ -63,3 +63,5 @@ app.post('/api/v4/search', async (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`)
 })
+
+module.exports = app
