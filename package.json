@@ -3,9 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "start": "node server.js",
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",

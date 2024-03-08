@@ -1,5 +1,5 @@
 export default async function searchGames(query) {
-  const baseUrl = 'http://localhost:3000'
+  const baseUrl = 'https://zircon-pretty-constrictor.glitch.me'
 
   try {
     const response = await fetch(`${baseUrl}/api/v4/search`, {

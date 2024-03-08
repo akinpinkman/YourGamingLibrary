@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 const clientId = process.env.REACT_APP_CLIENT_ID
 const authorizationToken = process.env.REACT_APP_AUTHORIZATION_TOKEN
@@ -13,7 +13,7 @@ const authorizationToken = process.env.REACT_APP_AUTHORIZATION_TOKEN
 app.use(express.json())
 app.use(
   cors({
-    origin: 'http://localhost:5173'
+    origin: 'https://jazzy-centaur-0535fd.netlify.app'
   })
 )
 
@@ -63,5 +63,3 @@ app.post('/api/v4/search', async (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`)
 })
-
-module.exports = app
