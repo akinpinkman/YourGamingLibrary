@@ -1,9 +1,14 @@
 import express from 'express'
 import fetch from 'node-fetch'
 import cors from 'cors'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const app = express()
-const PORT = 3169
+const PORT = 3000
+
+const clientId = process.env.REACT_APP_CLIENT_ID
+const authorizationToken = process.env.REACT_APP_AUTHORIZATION_TOKEN
 
 app.use(express.json())
 app.use(
@@ -18,8 +23,8 @@ app.post('/api/v4/populargames', async (req, res) => {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Client-ID': 'l2v8dn6vqb3cwqupu7ayri3ytu8f6j',
-        Authorization: 'Bearer iakc7q8wugu5icsyivyz4vibf3bc9h'
+        'Client-ID': clientId,
+        Authorization: `Bearer ${authorizationToken}`
       },
       body: 'fields name,first_release_date,involved_companies.company.name,platforms.name,screenshots.url,genres.name,storyline,rating,release_dates.human,cover.*,slug,summary; where first_release_date >= 1672524061 & rating >= 60 & rating_count >= 20; limit 100;'
     })
@@ -27,7 +32,6 @@ app.post('/api/v4/populargames', async (req, res) => {
     const popular_data = await popular_response.json()
 
     res.json(popular_data)
-    console.log(popular_data)
   } catch (error) {
     console.error('Error fetching data:', error)
     res.status(500).send('Internal Server Error')
@@ -35,14 +39,14 @@ app.post('/api/v4/populargames', async (req, res) => {
 })
 
 app.post('/api/v4/search', async (req, res) => {
-  const { search } = req.body // Use req.body.search instead of req.params.search
+  const { search } = req.body
   try {
     const search_response = await fetch('https://api.igdb.com/v4/games/', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Client-ID': 'l2v8dn6vqb3cwqupu7ayri3ytu8f6j',
-        Authorization: 'Bearer iakc7q8wugu5icsyivyz4vibf3bc9h'
+        'Client-ID': clientId,
+        Authorization: `Bearer ${authorizationToken}`
       },
       body: `search "${search}";
       fields name,first_release_date,involved_companies.company.name,platforms.name,screenshots.url,genres.name,storyline,rating,release_dates.human,cover.*,slug,summary; where screenshots.url != null & cover.url != null;`
@@ -50,7 +54,6 @@ app.post('/api/v4/search', async (req, res) => {
     const search_data = await search_response.json()
 
     res.json(search_data)
-    console.log(search_data)
   } catch (error) {
     console.error('Error fetching data:', error)
     res.status(500).send('Internal Server Error')
@@ -60,5 +63,3 @@ app.post('/api/v4/search', async (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`)
 })
-
-module.exports = app

@@ -9,8 +9,6 @@ export default function GameCardItemContainer() {
   const { isLoading, popularGames } = usePopularGames()
   const { searchedGames } = useSearchGames(query)
 
-  console.log(popularGames)
-
   const handleSearchChange = (e) => {
     e.preventDefault()
     setQuery(e.target.value)

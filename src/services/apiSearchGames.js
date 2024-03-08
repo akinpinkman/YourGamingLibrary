@@ -1,5 +1,5 @@
 export default async function searchGames(query) {
-  const baseUrl = 'http://localhost:3169'
+  const baseUrl = 'http://localhost:3000'
 
   try {
     const response = await fetch(`${baseUrl}/api/v4/search`, {
