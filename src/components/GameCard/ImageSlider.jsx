@@ -57,7 +57,7 @@ export default function ImageSlider({ screenshotImages }) {
         effect={'coverflow'}
         centeredSlides={true}
         loop={true}
-        slidesPerView={2}
+        slidesPerView={screenshotImages.length < 2 ? 1 : 2}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,

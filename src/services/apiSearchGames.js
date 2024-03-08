@@ -1,18 +1,23 @@
 export default async function searchGames(query) {
-  const clientId = import.meta.env.VITE_REACT_APP_CLIENT_ID
-  const authorizationToken = import.meta.env.VITE_REACT_APP_AUTHORIZATION_TOKEN
+  const baseUrl = 'http://localhost:3169'
 
-  const response = await fetch('api/v4/games', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Client-ID': clientId,
-      Authorization: `Bearer ${authorizationToken}`,
-      'Content-Type': 'application/json'
-    },
-    body: `search "${query}"; fields name,first_release_date,screenshots.url,platforms.name,storyline,genres.name,involved_companies.company.name,rating,release_dates.human,cover.*,slug,summary; where category = 0; limit 50;`
-  })
+  try {
+    const response = await fetch(`${baseUrl}/api/v4/search`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ search: query })
+    })
 
-  const data = await response.json()
-  return data
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error('There was a problem with your fetch operation:', error)
+    throw error
+  }
 }

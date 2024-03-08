@@ -101,15 +101,27 @@ export default function GamePages() {
           <StyledGenresThemesContainer>
             <StyledGenres>
               <h4>Genres</h4>
-              {game.genres.map((genre) => (
-                <li key={genre.id}> {genre.name}</li>
-              ))}
+              {game.genres && game.genres.length > 0 ? (
+                <ul>
+                  {game.genres.map((genres) => (
+                    <li key={genres.id}>{genres.name}</li>
+                  ))}
+                </ul>
+              ) : (
+                'Genres Unknown'
+              )}
             </StyledGenres>
             <StyledThemes>
               <h4>Platforms</h4>
-              {game.platforms.map((platform) => (
-                <li key={platform.id}> {platform.name}</li>
-              ))}
+              {game.platforms && game.platforms.length > 0 ? (
+                <ul>
+                  {game.platforms.map((platform) => (
+                    <li key={platform.id}>{platform.name}</li>
+                  ))}
+                </ul>
+              ) : (
+                'Platforms Unknown'
+              )}
             </StyledThemes>
           </StyledGenresThemesContainer>
         </StyledCoverContainer>
@@ -126,10 +138,17 @@ export default function GamePages() {
             />
           </StyledGameRating>
           <StyledH3>{processedGame.formattedDate}</StyledH3>
-          <StyledH4>{game.involved_companies[0].company.name}</StyledH4>
+          <StyledH4>
+            {game && game.involved_companies && game.involved_companies.length > 0
+              ? game.involved_companies[0].company.name
+              : 'Developer Unknown'}
+          </StyledH4>
           <StyledSummary>
             <h4>Summary:</h4>
-            <p>{game.summary}</p>
+            <p>
+              {game.summary ||
+                'Unfortunately, a comprehensive summary of the content is not available at this time. This could be due to a variety of reasons, including the complexity or novelty of the subject matter, the unavailability of sufficient information, or the proprietary nature of the content.'}
+            </p>
             {game.storyline && (
               <StyledStoryline>
                 <h4>Storyline:</h4>
@@ -137,11 +156,18 @@ export default function GamePages() {
               </StyledStoryline>
             )}
           </StyledSummary>
+
           <StyledDevelopers>
             <h4>Developers:</h4>
-            {game.involved_companies.map((company) => (
-              <li key={company.id}>{company.company.name}</li>
-            ))}
+            {game && game.involved_companies && game.involved_companies.length > 0 ? (
+              <ul>
+                {game.involved_companies.map((company) => (
+                  <li key={company.id}>{company.company.name}</li>
+                ))}
+              </ul>
+            ) : (
+              'Developers Unknown'
+            )}
           </StyledDevelopers>
         </StyledHeaderContainer>
         <ImageSlider screenshotImages={screenshotImages} />

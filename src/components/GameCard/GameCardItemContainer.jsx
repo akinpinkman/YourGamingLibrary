@@ -9,6 +9,13 @@ export default function GameCardItemContainer() {
   const { isLoading, popularGames } = usePopularGames()
   const { searchedGames } = useSearchGames(query)
 
+  console.log(popularGames)
+
+  const handleSearchChange = (e) => {
+    e.preventDefault()
+    setQuery(e.target.value)
+  }
+
   if (isLoading) {
     return (
       <div
@@ -34,7 +41,7 @@ export default function GameCardItemContainer() {
           <form className="form-inline">
             <input
               className="form-control mr-sm-2"
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={handleSearchChange}
               type="search"
               placeholder="Search"
               aria-label="Search"
