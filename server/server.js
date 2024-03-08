@@ -13,7 +13,7 @@ const authorizationToken = process.env.REACT_APP_AUTHORIZATION_TOKEN
 app.use(express.json())
 app.use(
   cors({
-    origin: 'https://jazzy-centaur-0535fd.netlify.app'
+    origin: 'http://localhost:5173'
   })
 )
 
