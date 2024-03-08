@@ -1,5 +1,5 @@
 export default async function getRecentPopularGames() {
-  const baseUrl = 'https://zircon-pretty-constrictor.glitch.me'
+  const baseUrl = 'http://localhost:3000'
 
   try {
     const response = await fetch(`${baseUrl}/api/v4/populargames`, {
