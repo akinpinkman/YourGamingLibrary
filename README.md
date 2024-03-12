@@ -1,8 +1,6 @@
-<div style="text-align: center;">
+[![Netlify Status](https://api.netlify.com/api/v1/badges/23876dff-9280-4578-b5d1-32dbdff95a38/deploy-status)](https://app.netlify.com/sites/yourgaminglibrary/deploys)
 
 # Your Gaming Library
-
-</div>
 
 ![YourGamingLibrary Preview](https://github.com/akinpinkman/YourGamingLibrary/blob/main/client/src/assets/YourGamingLibrary.gif?raw=true)
 
